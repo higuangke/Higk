@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/news/news",
+    "pages/news/jw/jw_detail",
+    "pages/news/oa/oa_detail",
+    "pages/news/hy/hy_detail",
+    "pages/news/jz/jz_detail",
+    "pages/news/new/new_detail",
+    "pages/more/login",
+    "pages/more/append",
+    "pages/more/more",
+    "pages/more/issues",
+    "pages/more/about",
+    "pages/core/kb/kb",
+    "pages/core/cj/cj",
+    "pages/core/ts/ts",
+    "pages/core/ts/detail/detail",
+    "pages/core/kjs/kjs",
+    "pages/core/xyk/xyk",
+    "pages/core/tsg/tsg",
+    "pages/core/bbq/bbq",
+    "pages/core/tb/tb"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#72b4ee",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "Hi广科",
+    "backgroundColor": "#72b4ee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#7f848a",
+    "selectedColor": "#72b4ee",
+    "backgroundColor": "#f7f6fb",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index/index.png",
+        "selectedIconPath": "images/index/index@active.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "资讯",
+        "iconPath": "images/index/news.png",
+        "selectedIconPath": "images/index/news@active.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "更多",
+        "iconPath": "images/index/more.png",
+        "selectedIconPath": "images/index/more@active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "uploadFile": 30000,
+    "downloadFile": 30000
+  }
+}

@@ -1,0 +1,62 @@
+<!--tsg.wxml-->
+<view class="container">
+    <view wx:if="{{remind}}" class="remind-box">
+        <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/images/index/loading.gif"></image>
+        <block wx:else>
+          <image class="remind-img" src="/images/index/nothing.png"></image>
+          <text class="remind-text">{{remind}}</text>
+        </block>
+    </view>
+    <block wx:else>
+        <view class="user-tsg">
+            <view class="user-tsg-item user-tsg-num">
+                <text class="user-tsg-hd">可借阅数</text>
+                <view class="user-tsg-bd">
+                    <text class="user-tsg-value">{{tsgData.books_num}}</text>
+                    <text class="user-tsg-text">本</text>
+                </view>
+            </view>
+            <view class="user-tsg-item user-tsg-history" bindtap="tsgHistory">
+                <text class="user-tsg-hd">历史借阅</text>
+                <view class="user-tsg-bd">
+                    <text class="user-tsg-value">{{tsgData.books_sum}}</text>
+                    <text class="user-tsg-text">本</text>
+                </view>
+            </view>
+            <view class="user-tsg-item user-tsg-dbet">
+                <text class="user-tsg-hd">欠费</text>
+                <view class="user-tsg-bd">
+                    <text class="user-tsg-value">{{tsgData.dbet}}</text>
+                    <text class="user-tsg-text">元</text>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{tsgData.nothing}}" class="remind-box">
+            <image class="remind-img" src="/images/index/hj.png"></image>
+            <text class="remind-text">当前无借阅</text>
+        </view>
+        <view wx:else class="book-list">
+            <text wx:if="{{!message}}" class="current-type">当前借阅记录</text>
+            <block wx:for="{{tsgData.book_list}}" wx:key="name" wx:for-item="itemName">
+                <view class="book-wraper">
+                    <view class="book-name">
+                        <image class="book-img" src="/images/core/tsg/{{itemName.color}}.png"></image>{{itemName.book}}
+                    </view>
+                    <view class="book-date">
+                        <view>
+                            <text>借阅日期：</text>
+                            <text>{{itemName.jsrq}}</text>
+                        </view>
+                        <view>
+                            <text>应还日期：</text>
+                            <text class="yhrq-value">{{itemName.yhrq}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="fix_tip {{tsgHistoryTap?'active':''}}">
+            <text>暂不能查看历史借阅详情哦~</text>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,6 @@
+//kjs.js
+Page({
+  data: {
+    
+  }
+})

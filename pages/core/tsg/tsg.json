@@ -1,0 +1,6 @@
+{
+    "navigationBarBackgroundColor": "#9d89ea",
+    "navigationBarTitleText": "借阅信息" ,
+    "backgroundColor": "#9d89ea",
+    "enablePullDownRefresh": false
+}

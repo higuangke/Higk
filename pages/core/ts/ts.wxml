@@ -1,0 +1,114 @@
+
+<!--xs.wxml-->
+<view class="container {{main.mainDisplay?'home':'active'}}">
+
+  <!--头部-->
+  <view class="header">
+    <image class="xs-logo" src="/images/core/ts.png"></image>
+    <view class="header-more">
+      <view class="login-help" bindtap="showHelp">
+        <text>帮助</text>
+        <image class="login-help-img" src="/images/more/help.png"></image>
+      </view>
+    </view>
+
+    <!--搜索框-->
+    <view class="search-input">
+      <view class="search-icon-box">
+        <image class="search-icon" src="/images/core/xs/search-sign.png"></image>
+      </view>
+      <form class="input-form" bindreset="bindClearSearchTap" bindsubmit="bindConfirmSearchTap">
+        <input class="input-text" value="{{header.defaultValue}}" focus="{{!header.defaultValue}}" bindinput="bindSearchInput" type="text" name="search" placeholder="题名 / 作者 / 主题词" bindconfirm="bindConfirmSearchTap" />
+        <button class="input-clear-button" formType="reset" hover-class="none" wx:if="{{header.inputValue}}">
+          <image class="clear-icon" src="/images/core/xs/clear.png"></image>
+        </button>
+        <button class="input-confirm-button" formType="submit" hover-class="none">
+          <text>搜索</text>
+        </button>
+      </form>
+    </view>
+  </view>
+
+  <!--页面主体部分-->
+  <view class="main" wx:if="{{main.total}}">
+
+    <!--主体部分标题-->
+    <view class="main-title">
+      <text class="title-text">书籍信息：{{main.total}}本</text>
+    </view>
+
+    <!--主体部分内容列表-->
+    <view class="main-list" wx:for="{{testData}}" wx:key="xh">
+
+      <!--列表的一个元素的模板结构-->
+      <view class="list-item">
+
+        <!--信息直接显示部分-->
+        <view class="item" data-index="{{index}}" bindtap="bindOpenList">
+          <view class="item-content">
+            <image class="item-content-image" src="{{item.headImg}}"></image>
+            <view class="item-content-state">
+              <view class="content-state-name">
+                {{item.title}}
+              </view>
+              <view class="content-state-stuId">作者：{{item.author}}</view>
+            </view>
+          </view>
+
+          <!--信息直接显示部分的下拉标识-->
+          <view class="list-sign">
+            <image class="list-sign-icon {{!item.display ? 'list-sign-icon-show' : ''}}" src="/images/core/common/up.png"></image>
+          </view>
+        </view>
+
+        <!--信息隐藏的下拉列表-->
+        <view class="item-ul" hidden="{{!item.display}}">
+          <view class="item-ul-gendor item-ul-li">
+            <text class="ul-li-label">出版社</text>
+            <text class="ul-li-content">{{item.press}}</text>
+          </view>
+          <view class="item-ul-college item-ul-li">
+            <text class="ul-li-label">出版年</text>
+            <text class="ul-li-content">{{item.pub_year}}</text>
+          </view>
+          <view class="item-ul-more item-ul-li">
+            <text class="ul-li-label">详情</text>
+            <navigator open-type="navigate" url="/pages/core/ts/detail/detail?url={{item.url}}&name={{item.title}}" class="ul-li-more ul-li-kb">点击查看</navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--提示消息-->
+    <view class="search-message">
+      <text class="message-title">{{main.message}}</text>
+    </view>
+  </view>
+  <view class="help" id="help" wx:if="{{header.help_status}}" bindtap="tapHelp">
+    <view class="box">
+      <view class="box-hd">
+        <text class="box-title">帮助</text>
+        <image class="box-close" src="/images/more/close.png" bindtap="hideHelp"></image>
+      </view>
+      <view class="box-bd">
+        <view class="help-q">1.根据题名/作者/主题词等查询</view>
+        <view class="help-a">
+          <text>例如：围城，可搜索到所有带有围城字样的书籍</text>
+        </view>
+        <view class="help-q">2.图书馆开放时间</view>
+        <view class="help-a">
+          <text>周一至周日　8:00-22:00</text>
+          <text></text>
+          <text>温馨提示：</text>
+          <text>周四下午2：30-5：30总服务台停止服务，阅览室照常开放</text>
+          <text>寒暑假、法定假日开馆时间另行通知。 </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--提示消息-->
+  <view class="search-message" hidden="{{messageObj.messageDisplay}}">
+    <text class="message-title">{{messageObj.message}}</text>
+  </view>
+</view>

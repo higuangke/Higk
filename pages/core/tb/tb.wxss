@@ -1,0 +1,6 @@
+/* tb.wxss */
+.container {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  background-color: #f7f7f7;
+}

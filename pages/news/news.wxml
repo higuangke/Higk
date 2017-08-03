@@ -1,0 +1,48 @@
+<!--news.wxml-->
+<view class="container">
+  <!-- <view class="remind-box">
+    <block>
+      <image class="remind-img" src="/images/index/pen.png"></image>
+      <text class="remind-text">该功能正在维护中···</text>
+    </block>
+  </view> -->
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/images/index/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <view class="gkdt">
+      <image class="gkdt-content" src="/images/news/gkdt.png"></image>
+    </view>
+  </block>
+  <!--新闻分类-->
+  <!-- <scroll-view class="filter" scroll-x="true">
+    <block wx:for="{{list}}" wx:key="id">
+      <image wx:if="{{item.enabled[user_type]}}" class="filter-item {{active.type === item.type ? 'active' : ''}}" data-id="{{item.id}}" id="{{item.type}}" bindtap="changeFilter" src="/images/news/{{item.type}}@colour.png"></image>
+      <image wx:else class="filter-item disabled" data-id="{{item.id}}" id="{{item.type}}" bindtap="changeFilterDisabled" src="/images/news/{{item.type}}@gray.png"></image>
+    </block>
+  </scroll-view> -->
+  
+  <!--新闻列表-->
+  <!-- <view class="content">
+    <view class="loader">
+      <image src="/images/index/loading.gif" wx-if="{{loading}}"></image>
+    </view>
+    <block wx:for="{{active.data}}" wx:key="item.articleid">
+      <navigator url="/pages/news/{{item.type}}/{{item.type}}_detail?type={{item.type}}&id={{item.articleid}}">
+        <view class="list-item {{item.type}}">
+          <view class="list-item-left">
+            <text class="list-item-title">{{item.title}}</text>
+            <text class="list-item-time">{{item.time}}</text>
+          </view>
+          <image class="list-item-icon" src="/images/news/{{item.type}}.png"></image>
+        </view>
+      </navigator>
+    </block>
+  </view> -->
+  <!--提醒消息-->
+  <!-- <text class="content-ending">{{active.remind}}</text> -->
+  <!--悬浮消息-->
+  <!-- <view class="fix_tip {{disabledRemind?'active':''}}">
+    <text>无权限查阅</text>
+  </view> -->
+</view>

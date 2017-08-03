@@ -1,0 +1,67 @@
+
+<!--xf.wxml-->
+<view class="container">
+  <view wx:if="{{remind}}" class="remind-box">
+    <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/images/index/loading.gif"></image>
+    <block wx:else>
+      <image class="remind-img" src="/images/index/nothing.png"></image>
+      <text class="remind-text">{{remind}}</text>
+    </block>
+  </view>
+  <block wx:else>
+
+    <!-- 书籍标题和说明 -->
+    <view class="xf-title-wraper">
+      <view class="xf-title-info">
+        <text class="xf-title">{{book_name}}</text>
+        <view class="xf-stu-info">
+          <block wx:for="{{catalog}}" wx:for-item="itemName" wx:key="itemName">
+            <text>{{itemName}}</text>
+          </block>
+        </view>
+      </view>
+
+      <!--<image class="xf-title-icon" src="/images/core/zs.png"></image>-->
+    </view>
+
+    <!-- 书籍详细信息 -->
+    <view class="xf-types">
+      <block wx:for="{{xfData}}" wx:key="barcode" wx:for-item="itemName">
+        <view class="xf-type-item {{itemName.open ? 'xf-item-show' : ''}}">
+          <view class="xf-head" id="{{itemName.barcode}}" bindtap="slideDetail">
+            <text class="xf-type-name">{{itemName.book_name}}</text>
+            <image class="xf-item-icon" src="/images/core/common/down.png"></image>
+          </view>
+          <view class="xf-detail">
+            <view class="xf-detail-item">
+              <text class="xf-detail-label">索书号</text>
+              <text class="xf-detail-content">{{itemName.callno}}</text>
+            </view>
+            <view class="xf-detail-item">
+              <text class="xf-detail-label">条码号</text>
+              <text class="xf-detail-content">{{itemName.barcode}}</text>
+            </view>
+            <!--
+            <view class="xf-detail-item">
+              <text class="xf-detail-label">登录号</text>
+              <text class="xf-detail-content">{{itemName.access_num}}</text>
+            </view>
+            -->
+            <view class="xf-detail-item">
+              <text class="xf-detail-label">藏书部门</text>
+              <text class="xf-detail-content">{{itemName.collect_dept}}</text>
+            </view>
+            <view class="xf-detail-item">
+              <text class="xf-detail-label">流通状态</text>
+              <text class="xf-detail-content">{{itemName.status}}</text>
+            </view>
+            <view class="xf-detail-item" wx:if="{{itemName.deadline}}">
+              <text class="xf-detail-label">应还日期</text>
+              <text class="xf-detail-content">{{itemName.deadline}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>

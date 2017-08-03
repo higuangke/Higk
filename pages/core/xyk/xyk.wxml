@@ -1,0 +1,106 @@
+<!--xyk.wxml-->
+<view class="container">
+    <view wx:if="{{remind}}" class="remind-box">
+        <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/images/index/loading.gif"></image>
+        <block wx:else>
+          <image class="remind-img" src="/images/index/nothing.png"></image>
+          <text class="remind-text">{{remind}}</text>
+        </block>
+    </view>
+    <block wx:else>
+        <view class="xyk-card">
+          <view class="xyk-hd">
+            <!-- <view class="xyk-chip"></view>-->
+            <text>广东科学技术职业学院</text>
+          </view>
+            <view class="xyk-content">
+                <view class="xyk-ye">
+                    <text class="xyk-ye-name">余额</text>
+                    <view class="xyk-ye-money">
+                        <text class="xyk-ye-value">{{balance}}</text>元
+                    </view>
+                </view>
+                <!-- <view class="xyk-img">
+                    <image src="/images/core/xyk/card-bg.png"></image>
+                </view> -->
+            </view>
+            <view class="xyk-card-more">
+                <!-- <text class="xyk-ye-time">截至时间：{{lasttime}}</text> -->
+                <text class="xyk-ye-id">卡号：{{xyk_id}}</text>
+                <image class="tblogo" src="/images/core/xyk/logo.png"></image>
+            </view>
+        </view>
+
+        <view class="xyk-xx">
+          <text class="xyk-xx-hd">
+            校园卡详情        
+          </text>
+          <text class="xyk-xx-content">
+            卡片状态：{{status}}
+          </text>
+          <text class="xyk-xx-content">
+            卡片余额：{{balance}}元
+          </text>
+          <text class="xyk-xx-content">
+            昨日消费：{{yesterdayconsume}}
+          </text>
+          <text class="xyk-xx-content">
+            一周消费：{{weekconsume}}
+          </text>
+          <text class="xyk-xx-content">
+            截至时间：{{lasttime}}
+          </text>
+        </view>
+        <!--
+            <text class="grid-remind">近10次交易情况：</text>
+        <view class="balance-consumption" bindtap="switchBtn">
+            <text class="{{switchBtn ? 'current-btn' : ''}}" id="balance">余额</text>
+            <text class="{{switchBtn ? '' : 'current-btn'}}" id="cost">交易额</text>
+        </view>
+        <view class="grid-wraper">
+            <view wx:if="{{canvas_remind}}" class="remind-box">
+                <image wx:if="{{canvas_remind == '加载中'}}" class="remind-img" src="/images/index/loading.gif"></image>
+            </view>
+            <block wx:else>
+                <canvas id="xyk-canvas" canvas-id="firstCanvas" bindtap="canvasTap"></canvas> 
+                <view class="line" style="left: {{lineLeft}}px;"></view>
+                <view class="y-text">{{switchBtn ? "余额" : "交易额"}}</view>
+                <view class="x-text">最近交易</view>
+            </block>
+        </view>
+        <text class="detail-remind">点击上图查看对应交易详情</text>
+        <view class="xyk-detail-wraper">
+            <view class="xyk-head">
+                <text class="xyk-type-name">交易详情</text>
+            </view>                          
+            <view class="detail-list">
+                <view class="detail-item">
+                    <text class="detail-item-label">交易时间</text>
+                    <text class="detail-item-value">{{tapDetail.time}}</text>
+                </view>
+                <view class="detail-item">
+                    <text class="detail-item-label">交易类型</text>
+                    <text class="detail-item-value">{{tapDetail.transaction}}</text>
+                </view>
+                <view class="detail-item">
+                    <text class="detail-item-label">交易金额</text>
+                    <text class="detail-item-value">{{(tapDetail.cost>0?'+':'')+tapDetail.cost}}</text>
+                </view>
+                <view class="detail-item">
+                    <text class="detail-item-label">交易设备</text>
+                    <text class="detail-item-value">{{tapDetail.device}}</text>
+                </view>
+                <view class="detail-item">
+                    <text class="detail-item-label">交易地点</text>
+                    <text class="detail-item-value">{{tapDetail.address}}</text>
+                </view>
+                <view class="detail-item">
+                    <text class="detail-item-label">交易余额</text>
+                    <text class="detail-item-value">{{tapDetail.balance}}</text>
+                </view>
+            </view>
+        </view>
+        -->
+        
+    </block>
+</view>

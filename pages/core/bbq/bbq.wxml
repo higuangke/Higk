@@ -1,0 +1,9 @@
+<!--bbq.wxml-->
+<view class="container">
+  <view class="remind-box">
+    <block>
+      <image class="remind-img" src="/images/index/pen.png"></image>
+      <text class="remind-text">该功能正在维护中···</text>
+    </block>
+  </view>
+</view>
